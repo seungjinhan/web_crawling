@@ -1,3 +1,6 @@
+'''
+This is for save the date about Naver finance news (link, title, date, press) In mongodb
+'''
 import requests
 from bs4 import BeautifulSoup
 import datetime
@@ -61,7 +64,7 @@ while True:
     nowDate = now.strftime('%Y%m%d');
 
     sleep(1)   # 1초간 딜레이 시킴
-         
+
     url = 'https://finance.naver.com/news/news_list.nhn?mode=RANK&date='+str(nowDate)+'&page='+str(index)+""
     print(url)
     req = requests.get(url)
