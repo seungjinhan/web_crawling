@@ -6,3 +6,7 @@
 
     가. save the web page for image <br/>
     나. login for website <br/>
+
+3. daum_people_info : 
+    - crawling people info from daum
+    - and save date in MongoDB
