@@ -104,5 +104,221 @@ for tr in list_data:
             print( main2.a.contents[0])
             
     index = index +1;
+ 
+ 
+# 거래상위  (코스피)
+url = 'https://finance.naver.com/sise/sise_quant.nhn?sosok=0'
+req = requests.get(url)
+
+## HTML 소스 가져오기
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+data = soup.find("table", class_='type_2')
+list_data = data.find_all('tr')
+
+index = 0
+for tr in list_data:
     
+    if index > 1 :
+        
+        #print( tr)
+        td_list = tr.find_all('td')
+        if( len( td_list) == 12):
+
+            print('--------------------')
+            no          = td_list[0] # 종목명
+            name        = td_list[1] # 종목명
+            now_price   = td_list[2] # 현재가
+            compare_y   = td_list[3] # 전일비
+            percent     = td_list[4] # 등락률
+            all_count   = td_list[5] # 거래량
+            money       = td_list[6] # 거래대금
+            buy         = td_list[7] # 매수호가
+            sell        = td_list[8] # 매도호가
+            com_money   = td_list[9] # 시가총액
+            per         = td_list[10] # PER
+            roe         = td_list[11] # ROE
+            
+            print( no.contents[0])
+            print( name.a['href'])
+            print( name.a.contents[0])
+            print( now_price.contents[0])
+            
+            if compare_y.img:
+                print( compare_y.img['alt'])
+                
+            print( compare_y.span.contents[0])
+            print( percent.span.contents[0])
+            print( all_count.contents[0])
+            print( money.contents[0])
+            print( buy.contents[0])
+            print( sell.contents[0])
+            print( com_money.contents[0])
+            print( per.contents[0])
+            print( roe.contents[0])
+          
+            
+    index = index +1;
     
+# 거래상위  (코스닥)
+url = 'https://finance.naver.com/sise/sise_quant.nhn?sosok=1'
+req = requests.get(url)
+
+## HTML 소스 가져오기
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+data = soup.find("table", class_='type_2')
+list_data = data.find_all('tr')
+
+index = 0
+for tr in list_data:
+    
+    if index > 1 :
+        
+        #print( tr)
+        td_list = tr.find_all('td')
+        if( len( td_list) == 12):
+
+            print('--------------------')
+            no          = td_list[0] # 종목명
+            name        = td_list[1] # 종목명
+            now_price   = td_list[2] # 현재가
+            compare_y   = td_list[3] # 전일비
+            percent     = td_list[4] # 등락률
+            all_count   = td_list[5] # 거래량
+            money       = td_list[6] # 거래대금
+            buy         = td_list[7] # 매수호가
+            sell        = td_list[8] # 매도호가
+            com_money   = td_list[9] # 시가총액
+            per         = td_list[10] # PER
+            roe         = td_list[11] # ROE
+            
+            print( no.contents[0])
+            print( name.a['href'])
+            print( name.a.contents[0])
+            print( now_price.contents[0])
+            
+            if compare_y.img:
+                print( compare_y.img['alt'])
+                
+            print( compare_y.span.contents[0])
+            print( percent.span.contents[0])
+            print( all_count.contents[0])
+            print( money.contents[0])
+            print( buy.contents[0])
+            print( sell.contents[0])
+            print( com_money.contents[0])
+            print( per.contents[0])
+            print( roe.contents[0])
+          
+            
+    index = index +1;
+    
+ 
+# 시가총액 상위(코스피 )
+url = 'https://finance.naver.com/sise/sise_market_sum.nhn?sosok=0'
+req = requests.get(url)
+
+## HTML 소스 가져오기
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+data = soup.find("table", class_='type_2')
+list_data = data.find_all('tr')
+
+index = 0
+for tr in list_data:
+    
+    if index > 1 :
+        
+        td_list = tr.find_all('td')
+        if( len( td_list) == 13):
+    
+            print('--------------------')
+            no          = td_list[0] # 번호
+            name        = td_list[1] # 종목명
+            now_price   = td_list[2] # 현재가
+            compare_y   = td_list[3] # 전일비
+            percent     = td_list[4] # 등락률
+            show_price  = td_list[5] # 액면가
+            all_money   = td_list[6] # 시가총액
+            all_stock   = td_list[7] # 상장주식수
+            foriener    = td_list[8] # 외국인비율
+            all_count   = td_list[9] # 거래량
+            per         = td_list[10] # PER
+            roe         = td_list[11] # ROE
+            
+            print( no.contents[0])
+            print( name.a['href'])
+            print( name.a.contents[0])
+            print( now_price.contents[0])
+            
+            if compare_y.img:
+                print( compare_y.img['alt'])
+                
+            print( compare_y.span.contents[0].strip())
+            print( percent.span.contents[0].strip())
+            print( show_price.contents[0])
+            print( all_money.contents[0])
+            print( all_stock.contents[0])
+            print( foriener.contents[0])
+            print( all_count.contents[0])
+            print( per.contents[0])
+            print( roe.contents[0])
+          
+            
+    index = index +1;
+    
+# 시가총액 상위(코스닥 )
+url = 'https://finance.naver.com/sise/sise_market_sum.nhn?sosok=1'
+req = requests.get(url)
+
+## HTML 소스 가져오기
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+data = soup.find("table", class_='type_2')
+list_data = data.find_all('tr')
+
+index = 0
+for tr in list_data:
+    
+    if index > 1 :
+        
+        td_list = tr.find_all('td')
+        if( len( td_list) == 13):
+    
+            print('--------------------')
+            no          = td_list[0] # 번호
+            name        = td_list[1] # 종목명
+            now_price   = td_list[2] # 현재가
+            compare_y   = td_list[3] # 전일비
+            percent     = td_list[4] # 등락률
+            show_price  = td_list[5] # 액면가
+            all_money   = td_list[6] # 시가총액
+            all_stock   = td_list[7] # 상장주식수
+            foriener    = td_list[8] # 외국인비율
+            all_count   = td_list[9] # 거래량
+            per         = td_list[10] # PER
+            roe         = td_list[11] # ROE
+            
+            print( no.contents[0])
+            print( name.a['href'])
+            print( name.a.contents[0])
+            print( now_price.contents[0])
+            
+            if compare_y.img:
+                print( compare_y.img['alt'])
+                
+            print( compare_y.span.contents[0].strip())
+            print( percent.span.contents[0].strip())
+            print( show_price.contents[0])
+            print( all_money.contents[0])
+            print( all_stock.contents[0])
+            print( foriener.contents[0])
+            print( all_count.contents[0])
+            print( per.contents[0])
+            print( roe.contents[0])
+          
+            
+    index = index +1;
+    
+        
